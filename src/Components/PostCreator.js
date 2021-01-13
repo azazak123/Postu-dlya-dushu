@@ -36,6 +36,7 @@ export default function PostCreator() {
   return (
     <div className="m-4 p-4 bg-light border">
       {send ? <Redirect to="/profile" noThrow={true} /> : ""}
+      {!user ? <Redirect to="/login" noThrow={true} /> : ""}
       <Modal show={show} animation={false} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Введіть усі неодхідні дані</Modal.Title>

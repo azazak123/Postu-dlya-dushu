@@ -12,3 +12,7 @@ img {
 textarea {
   resize: none;
 }
+
+#root{
+  white-space: pre-wrap;
+}
