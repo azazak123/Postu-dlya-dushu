@@ -1,5 +1,4 @@
 import { Redirect } from "@reach/router";
-import { Alert, Modal } from "react-bootstrap";
 import { useState } from "react";
 
 import { useSelector } from "react-redux";
@@ -10,12 +9,11 @@ export default function PostCreator() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [send, setSend] = useState(false);
-  const [show, setShow] = useState(false);
   const user = useSelector((state) => state.user);
 
   const sendPost = () => {
     if (!title || !text) {
-      setShow(true);
+      alert("Введіть усі неодхідні дані");
       return;
     }
     const post = {
@@ -37,11 +35,6 @@ export default function PostCreator() {
     <div className="m-4 p-4 bg-light border">
       {send ? <Redirect to="/profile" noThrow={true} /> : ""}
       {!user ? <Redirect to="/login" noThrow={true} /> : ""}
-      <Modal show={show} animation={false} onHide={() => setShow(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Введіть усі неодхідні дані</Modal.Title>
-        </Modal.Header>{" "}
-      </Modal>
       <div className="form-group">
         <input
           type="text"

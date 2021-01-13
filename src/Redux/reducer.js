@@ -6,7 +6,7 @@ export function userReducer(state, action) {
       return state;
     case GOOGLE_LOGIN:
       localStorage.setItem("user", JSON.stringify(action.payload));
-      return { ...state, user: action.payload };
+      return { ...state, user: JSON.parse(localStorage.getItem("user")) };
     case GOOGLE_LOGOUT:
       localStorage.removeItem("user");
       return { ...state, user: null };

@@ -20,7 +20,6 @@ export default function PostLine() {
         setPosts(posts.reverse());
       });
   }, []);
-  console.log(posts[2]?.text);
   return (
     <Container className="my-3">
       {posts.map((post, i) => (
